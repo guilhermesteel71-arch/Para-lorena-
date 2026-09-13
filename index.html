@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Lorena ✨</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #08091c;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* TELA INICIAL */
+
+#inicio {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,150,100,.18),
+            transparent 35%
+        ),
+        linear-gradient(#070817,#17152e);
+
+    transition: 1.5s ease;
+}
+
+#inicio.saindo {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.inicio-conteudo {
+    padding: 30px;
+    animation: aparecer 2s ease;
+}
+
+.pequeno {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    opacity: .6;
+    margin-bottom: 25px;
+}
+
+#inicio h1 {
+    font-size: clamp(38px,10vw,75px);
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+#inicio p {
+    max-width: 500px;
+    line-height: 1.7;
+    opacity: .75;
+    margin: auto;
+}
+
+.botao {
+    margin-top: 35px;
+    padding: 15px 35px;
+
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 50px;
+
+    background: rgba(255,255,255,.08);
+    color: white;
+
+    font-family: inherit;
+    font-size: 16px;
+
+    cursor: pointer;
+    transition: .4s;
+}
+
+.botao:hover {
+    background: rgba(255,255,255,.2);
+    transform: scale(1.05);
+}
+
+
+/* ESTRELAS */
+
+.fundo {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.estrela {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    background: white;
+    border-radius: 50%;
+
+    animation: piscar 3s infinite;
+}
+
+@keyframes piscar {
+    0%,100% {
+        opacity: .2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 30px;
+
+    background:
+        radial-gradient(
+            circle at 50% 75%,
+            rgba(255,150,80,.3),
+            transparent 30%
+        ),
+        linear-gradient(
+            to bottom,
+            #08091c,
+            #1c1836 45%,
+            #743d50 78%,
+            #db7757
+        );
+}
+
+.hero h1 {
+    font-size: clamp(55px,14vw,120px);
+    font-weight: normal;
+
+    text-shadow:
+        0 0 35px rgba(255,200,150,.25);
+}
+
+.hero p {
+    max-width: 650px;
+
+    margin: 25px auto 0;
+
+    font-size: 20px;
+    line-height: 1.8;
+
+    opacity: .85;
+}
+
+.coracao {
+    font-size: 45px;
+    margin-top: 30px;
+
+    animation: pulsar 2s infinite;
+}
+
+@keyframes pulsar {
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
+/* SEÇÕES */
+
+section {
+    position: relative;
+    z-index: 2;
+
+    padding: 100px 25px;
+}
+
+.conteudo {
+    max-width: 850px;
+    margin: auto;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.titulo span {
+    display: block;
+
+    font-size: 12px;
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    opacity: .5;
+
+    margin-bottom: 15px;
+}
+
+.titulo h2 {
+    font-size: 42px;
+    font-weight: normal;
+}
+
+
+/* CARTA */
+
+.carta {
+    padding: 45px 35px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.06);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.25);
+}
+
+.carta p {
+    font-size: 19px;
+    line-height: 2;
+
+    margin-bottom: 25px;
+}
+
+.carta .frase {
+    text-align: center;
+
+    font-size: 26px;
+
+    font-style: italic;
+
+    margin: 45px 0;
+}
+
+
+/* MOMENTOS */
+
+.momentos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(220px,1fr));
+
+    gap: 20px;
+}
+
+.momento {
+    min-height: 230px;
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.8),
+            rgba(0,0,0,.1)
+        ),
+        #29243d;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    transition: .5s;
+}
+
+.momento:hover {
+    transform: translateY(-8px);
+}
+
+.momento h3 {
+    font-size: 23px;
+    font-weight: normal;
+
+    margin-bottom: 8px;
+}
+
+.momento p {
+    opacity: .7;
+    line-height: 1.5;
+}
+
+
+/* LINHA DO TEMPO */
+
+.timeline {
+    border-left:
+        1px solid rgba(255,255,255,.2);
+
+    margin-left: 15px;
+
+    padding-left: 30px;
+}
+
+.evento {
+    position: relative;
+
+    margin-bottom: 55px;
+}
+
+.evento::before {
+    content: "";
+
+    position: absolute;
+
+    left: -37px;
+    top: 5px;
+
+    width: 12px;
+    height: 12px;
+
+    background: #f6a16b;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 20px #f6a16b;
+}
+
+.evento h3 {
+    font-size: 24px;
+    font-weight: normal;
+
+    margin-bottom: 10px;
+}
+
+.evento p {
+    line-height: 1.8;
+    opacity: .7;
+}
+
+
+/* COISAS DELA */
+
+.lista {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+.tag {
+    padding: 12px 18px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid rgba(255,255,255,.1);
+
+    opacity: .85;
+}
+
+
+/* FINAL */
+
+.final {
+    min-height: 90vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,150,100,.2),
+            transparent 45%
+        );
+}
+
+.final h2 {
+    font-size: clamp(40px,9vw,80px);
+
+    font-weight: normal;
+
+    margin-bottom: 30px;
+}
+
+.final p {
+    max-width: 650px;
+
+    margin: auto;
+
+    font-size: 20px;
+
+    line-height: 1.9;
+
+    opacity: .8;
+}
+
+.assinatura {
+    margin-top: 45px;
+
+    font-style: italic;
+
+    opacity: .6;
+}
+
+
+/* ANIMAÇÕES */
+
+.revelar {
+    opacity: 0;
+
+    transform:
+        translateY(40px);
+
+    transition: 1s;
+}
+
+.revelar.visivel {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* CELULAR */
+
+@media(max-width:600px) {
+
+    .carta {
+        padding: 30px 22px;
+    }
+
+    .carta p {
+        font-size: 17px;
+    }
+
+    .titulo h2 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ESTRELAS -->
+
+<div
+    class="fundo"
+    id="estrelas">
+</div>
+
+
+<!-- TELA INICIAL -->
+
+<div id="inicio">
+
+    <div class="inicio-conteudo">
+
+        <div class="pequeno">
+            isso é só para você
+        </div>
+
+        <h1>
+            Lorena ✨
+        </h1>
+
+        <p>
+            Eu poderia simplesmente te dizer algumas palavras,
+            mas achei que você merecia algo um pouco diferente.
+        </p>
+
+        <button
+            class="botao"
+            onclick="entrar()">
+
+            Abrir
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div>
+
+        <div class="pequeno">
+            uma pequena homenagem
+        </div>
+
+        <h1>
+            Lorena
+        </h1>
+
+        <div class="coracao">
+            ♡
+        </div>
+
+        <p>
+            Algumas pessoas chegam sem avisar.
+            Outras chegam justamente quando a gente mais precisava
+            lembrar que ainda existem pessoas especiais.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- CARTA -->
+
+<section>
+
+<div class="conteudo revelar">
+
+    <div class="titulo">
+
+        <span>
+            se eu pudesse explicar
+        </span>
+
+        <h2>
+            O que você significa
+        </h2>
+
+    </div>
+
+
+    <div class="carta">
+
+        <p>
+            Lorena, talvez você nunca consiga entender completamente
+            o quanto a sua presença se tornou importante para mim.
+        </p>
+
+        <p>
+            Você apareceu em uma fase em que eu já estava cansado
+            de algumas coisas, de algumas pessoas e, principalmente,
+            de esperar que algo pudesse realmente fazer sentido.
+        </p>
+
+        <p>
+            E então veio você.
+        </p>
+
+        <p>
+            Não como alguém que chegou prometendo mudar tudo,
+            mas simplesmente sendo você.
+        </p>
+
+        <p>
+            Com seu jeito de falar demais, sua paixão pelo pôr do sol,
+            pelas estrelas, pela lua, pelo campo, pelas crianças,
+            pelo vôlei, pelos vestidos e por tantas outras pequenas
+            coisas que fazem parte de quem você é.
+        </p>
+
+        <p class="frase">
+            "Talvez você não tenha percebido,
+            mas algumas das suas pequenas coisas
+            se tornaram grandes para mim."
+        </p>
+
+        <p>
+            Eu gosto de saber que existe alguém como você na minha vida.
+            Alguém com quem eu posso conversar, rir, ouvir histórias
+            e simplesmente compartilhar um pouco da vida.
+        </p>
+
+        <p>
+            E acima de tudo, gosto de saber que nossa amizade nasceu
+            de uma forma verdadeira.
+        </p>
+
+        <p>
+            Você não precisou fazer nada extraordinário para ser especial.
+            Sua existência já foi suficiente.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- MOMENTOS -->
+
+<section>
+
+<div class="conteudo revelar">
+
+    <div class="titulo">
+
+        <span>
+            coisas que me fazem lembrar de você
+        </span>
+
+        <h2>
+            Seu universo
+        </h2>
+
+    </div>
+
+
+    <div class="momentos">
+
+
+        <div class="momento">
+
+            <h3>
+                🌅 Pôr do sol
+            </h3>
+
+            <p>
+                Porque algumas pessoas encontram beleza
+                justamente no momento em que o dia está terminando.
+            </p>
+
+        </div>
+
+
+        <div class="momento">
+
+            <h3>
+                🌙 Lua
+            </h3>
+
+            <p>
+                Aquele tipo de beleza silenciosa que não precisa
+                chamar atenção para ser percebida.
+            </p>
+
+        </div>
+
+
+        <div class="momento">
+
+            <h3>
+                ✨ Estrelas
+            </h3>
+
+            <p>
+                Pequenos pontos de luz em meio à imensidão.
+                Talvez por isso combinem tanto com você.
+            </p>
+
+        </div>
+
+
+        <div class="momento">
+
+            <h3>
+                🌿 Campo
+            </h3>
+
+            <p>
+                A simplicidade de estar em um lugar tranquilo
+                e simplesmente aproveitar o momento.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- LINHA DO TEMPO -->
+
+<section>
+
+<div class="conteudo revelar">
+
+    <div class="titulo">
+
+        <span>
+            nossa história
+        </span>
+
+        <h2>
+            Alguns capítulos
+        </h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="evento">
+
+            <h3>
+                Quando você apareceu
+            </h3>
+
+            <p>
+                Eu não sabia que aquela amizade teria tanta importância.
+                Às vezes, as melhores histórias começam sem que a gente
+                perceba que está vivendo o primeiro capítulo.
+            </p>
+
+        </div>
+
+
+        <div class="evento">
+
+            <h3>
+                Quando começamos a conversar
+            </h3>
+
+            <p>
+                Aos poucos, histórias foram compartilhadas,
+                problemas foram contados e aquela distância inicial
+                foi dando espaço para confiança.
+            </p>
+
+        </div>
+
+
+        <div class="evento">
+
+            <h3>
+                Quando percebi sua importância
+            </h3>
+
+            <p>
+                Foi quando percebi que já não era apenas sobre conversar.
+                Era sobre saber que existia alguém ali.
+            </p>
+
+        </div>
+
+
+        <div class="evento">
+
+            <h3>
+                E hoje
+            </h3>
+
+            <p>
+                Hoje eu só espero que essa amizade continue sendo
+                uma daquelas coisas bonitas que a vida colocou no caminho.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- COISAS DELA -->
+
+<section>
+
+<div class="conteudo revelar">
+
+    <div class="titulo">
+
+        <span>
+            porque é impossível resumir você
+        </span>
+
+        <h2>
+            Coisas que fazem você ser você
+        </h2>
+
+    </div>
+
+
+    <div class="lista">
+
+        <div class="tag">
+            🌅 Pôr do sol
+        </div>
+
+        <div class="tag">
+            👧 Crianças
+        </div>
+
+        <div class="tag">
+            🏐 Vôlei
+        </div>
+
+        <div class="tag">
+            🌿 Campo
+        </div>
+
+        <div class="tag">
+            💇‍♀️ Cabelo
+        </div>
+
+        <div class="tag">
+            💬 Falar demais
+        </div>
+
+        <div class="tag">
+            👗 Vestidos
+        </div>
+
+        <div class="tag">
+            🏠 Ficar em casa
+        </div>
+
+        <div class="tag">
+            🌌 Dormir em lugares abertos
+        </div>
+
+        <div class="tag">
+            ⭐ Estrelas
+        </div>
+
+        <div class="tag">
+            🌙 Lua
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section class="final">
+
+<div class="revelar">
+
+    <div class="pequeno">
+        e se um dia você esquecer...
+    </div>
+
+    <h2>
+        Leia isso novamente.
+    </h2>
+
+    <p>
+        Você é uma pessoa incrível, Lorena.
+        E talvez você nunca saiba exatamente o tamanho
+        da diferença que sua amizade fez na minha vida.
+    </p>
+
+    <p style="margin-top:25px">
+
+        Mas eu espero que, quando olhar para o céu,
+        encontrar o pôr do sol ou observar a lua,
+        você se lembre de uma coisa:
+
+    </p>
+
+    <p
+        class="frase"
+        style="margin-top:30px;font-style:italic">
+
+        Você também é uma das coisas bonitas
+        que a vida colocou no meu caminho.
+
+    </p>
+
+    <div class="assinatura">
+
+        — Guilherme 🤍
+
+    </div>
+
+</div>
+
+</section>
+
+
+<script>
+
+
+/* CRIAR ESTRELAS */
+
+const estrelas =
+    document.getElementById("estrelas");
+
+
+for(let i = 0; i < 160; i++){
+
+    const estrela =
+        document.createElement("div");
+
+    estrela.className =
+        "estrela";
+
+    estrela.style.left =
+        Math.random() * 100 + "%";
+
+    estrela.style.top =
+        Math.random() * 75 + "%";
+
+    const tamanho =
+        Math.random() * 3 + 1;
+
+    estrela.style.width =
+        tamanho + "px";
+
+    estrela.style.height =
+        tamanho + "px";
+
+    estrela.style.animationDelay =
+        Math.random() * 4 + "s";
+
+    estrelas.appendChild(estrela);
+
+}
+
+
+/* ABRIR SITE */
+
+function entrar(){
+
+    document
+        .getElementById("inicio")
+        .classList
+        .add("saindo");
+
+}
+
+
+/* ANIMAÇÃO AO ROLAR */
+
+const observador =
+    new IntersectionObserver(
+
+        entradas => {
+
+            entradas.forEach(
+                entrada => {
+
+                    if(
+                        entrada.isIntersecting
+                    ){
+
+                        entrada.target
+                            .classList
+                            .add("visivel");
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold: .15
+        }
+
+    );
+
+
+document
+    .querySelectorAll(".revelar")
+    .forEach(
+
+        elemento => {
+
+            observador.observe(
+                elemento
+            );
+
+        }
+
+    );
+
+</script>
+
+</body>
+        </html>
