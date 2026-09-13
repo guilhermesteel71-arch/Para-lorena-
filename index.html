@@ -3,895 +3,478 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para Lorena ✨</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    font-family: Georgia, "Times New Roman", serif;
-    background: #08091c;
-    color: white;
-    overflow-x: hidden;
+body{
+    background:#090817;
+    color:#fff;
+    font-family:Georgia,serif;
+    overflow-x:hidden;
+}
+
+/* ESTRELAS */
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:brilhar 3s infinite ease-in-out;
+}
+
+@keyframes brilhar{
+    0%,100%{opacity:.2;transform:scale(1)}
+    50%{opacity:1;transform:scale(1.8)}
 }
 
 /* TELA INICIAL */
 
-#inicio {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+    position:relative;
+    z-index:1;
 
     background:
-        radial-gradient(
-            circle at center,
-            rgba(255,150,100,.18),
-            transparent 35%
-        ),
-        linear-gradient(#070817,#17152e);
-
-    transition: 1.5s ease;
+    radial-gradient(circle at 50% 70%,
+    rgba(191,112,87,.28),
+    transparent 30%),
+    linear-gradient(
+    180deg,
+    #080817 0%,
+    #101027 45%,
+    #24182b 75%,
+    #090817 100%);
 }
 
-#inicio.saindo {
-    opacity: 0;
-    visibility: hidden;
+.hero-content{
+    max-width:700px;
+    animation:entrada 2s ease;
 }
 
-.inicio-conteudo {
-    padding: 30px;
-    animation: aparecer 2s ease;
-}
-
-.pequeno {
-    font-size: 12px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    opacity: .6;
-    margin-bottom: 25px;
-}
-
-#inicio h1 {
-    font-size: clamp(38px,10vw,75px);
-    font-weight: normal;
-    margin-bottom: 20px;
-}
-
-#inicio p {
-    max-width: 500px;
-    line-height: 1.7;
-    opacity: .75;
-    margin: auto;
-}
-
-.botao {
-    margin-top: 35px;
-    padding: 15px 35px;
-
-    border: 1px solid rgba(255,255,255,.3);
-    border-radius: 50px;
-
-    background: rgba(255,255,255,.08);
-    color: white;
-
-    font-family: inherit;
-    font-size: 16px;
-
-    cursor: pointer;
-    transition: .4s;
-}
-
-.botao:hover {
-    background: rgba(255,255,255,.2);
-    transform: scale(1.05);
-}
-
-
-/* ESTRELAS */
-
-.fundo {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.estrela {
-    position: absolute;
-
-    width: 2px;
-    height: 2px;
-
-    background: white;
-    border-radius: 50%;
-
-    animation: piscar 3s infinite;
-}
-
-@keyframes piscar {
-    0%,100% {
-        opacity: .2;
+@keyframes entrada{
+    from{
+        opacity:0;
+        transform:translateY(30px);
     }
-
-    50% {
-        opacity: 1;
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 }
 
-
-/* HERO */
-
-.hero {
-    min-height: 100vh;
-
-    position: relative;
-    z-index: 2;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-    padding: 30px;
-
-    background:
-        radial-gradient(
-            circle at 50% 75%,
-            rgba(255,150,80,.3),
-            transparent 30%
-        ),
-        linear-gradient(
-            to bottom,
-            #08091c,
-            #1c1836 45%,
-            #743d50 78%,
-            #db7757
-        );
+.small{
+    letter-spacing:7px;
+    text-transform:uppercase;
+    font-size:12px;
+    color:#aaa5b8;
+    margin-bottom:30px;
 }
 
-.hero h1 {
-    font-size: clamp(55px,14vw,120px);
-    font-weight: normal;
-
-    text-shadow:
-        0 0 35px rgba(255,200,150,.25);
+h1{
+    font-size:clamp(60px,16vw,110px);
+    font-weight:normal;
+    margin-bottom:25px;
 }
 
-.hero p {
-    max-width: 650px;
-
-    margin: 25px auto 0;
-
-    font-size: 20px;
-    line-height: 1.8;
-
-    opacity: .85;
+.subtitle{
+    font-size:clamp(20px,5vw,30px);
+    line-height:1.7;
+    color:#d5d0d8;
+    margin-bottom:45px;
 }
 
-.coracao {
-    font-size: 45px;
-    margin-top: 30px;
-
-    animation: pulsar 2s infinite;
+button{
+    background:rgba(255,255,255,.08);
+    color:white;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:50px;
+    padding:18px 50px;
+    font-size:20px;
+    font-family:Georgia,serif;
+    cursor:pointer;
+    transition:.4s;
 }
 
-@keyframes pulsar {
-    50% {
-        transform: scale(1.2);
-    }
+button:hover{
+    background:rgba(255,255,255,.18);
+    transform:scale(1.05);
 }
 
+/* CONTEÚDO */
 
-/* SEÇÕES */
-
-section {
-    position: relative;
-    z-index: 2;
-
-    padding: 100px 25px;
+section{
+    position:relative;
+    z-index:1;
+    min-height:100vh;
+    padding:100px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.conteudo {
-    max-width: 850px;
-    margin: auto;
+.container{
+    max-width:750px;
+    text-align:center;
 }
 
-.titulo {
-    text-align: center;
-    margin-bottom: 55px;
+section h2{
+    font-size:clamp(35px,8vw,55px);
+    font-weight:normal;
+    margin-bottom:35px;
 }
 
-.titulo span {
-    display: block;
-
-    font-size: 12px;
-    letter-spacing: 4px;
-
-    text-transform: uppercase;
-
-    opacity: .5;
-
-    margin-bottom: 15px;
+.text{
+    color:#d3ced8;
+    font-size:20px;
+    line-height:2;
 }
 
-.titulo h2 {
-    font-size: 42px;
-    font-weight: normal;
+.destaque{
+    color:white;
+    font-size:25px;
+    line-height:1.8;
+    margin:35px 0;
 }
 
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:45px;
+}
+
+.card{
+    padding:25px 15px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:20px;
+    background:rgba(255,255,255,.04);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    background:rgba(255,255,255,.08);
+}
+
+.card span{
+    display:block;
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#c8c2ce;
+}
+
+/* LUA */
+
+.moon{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#eee;
+    margin:0 auto 45px;
+    box-shadow:0 0 50px rgba(255,255,255,.25);
+    position:relative;
+}
+
+.moon:after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#101027;
+    left:30px;
+    top:-12px;
+}
 
 /* CARTA */
 
-.carta {
-    padding: 45px 35px;
-
-    border-radius: 30px;
-
-    background: rgba(255,255,255,.06);
-
-    border: 1px solid rgba(255,255,255,.12);
-
-    backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 25px 80px rgba(0,0,0,.25);
+.letter{
+    text-align:left;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.12);
+    padding:35px;
+    border-radius:25px;
+    margin-top:30px;
+    box-shadow:0 20px 70px rgba(0,0,0,.25);
 }
 
-.carta p {
-    font-size: 19px;
-    line-height: 2;
-
-    margin-bottom: 25px;
+.letter p{
+    color:#d6d0d9;
+    font-size:19px;
+    line-height:2;
+    margin-bottom:20px;
 }
-
-.carta .frase {
-    text-align: center;
-
-    font-size: 26px;
-
-    font-style: italic;
-
-    margin: 45px 0;
-}
-
-
-/* MOMENTOS */
-
-.momentos {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(220px,1fr));
-
-    gap: 20px;
-}
-
-.momento {
-    min-height: 230px;
-
-    border-radius: 25px;
-
-    padding: 25px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.8),
-            rgba(0,0,0,.1)
-        ),
-        #29243d;
-
-    border: 1px solid rgba(255,255,255,.12);
-
-    transition: .5s;
-}
-
-.momento:hover {
-    transform: translateY(-8px);
-}
-
-.momento h3 {
-    font-size: 23px;
-    font-weight: normal;
-
-    margin-bottom: 8px;
-}
-
-.momento p {
-    opacity: .7;
-    line-height: 1.5;
-}
-
-
-/* LINHA DO TEMPO */
-
-.timeline {
-    border-left:
-        1px solid rgba(255,255,255,.2);
-
-    margin-left: 15px;
-
-    padding-left: 30px;
-}
-
-.evento {
-    position: relative;
-
-    margin-bottom: 55px;
-}
-
-.evento::before {
-    content: "";
-
-    position: absolute;
-
-    left: -37px;
-    top: 5px;
-
-    width: 12px;
-    height: 12px;
-
-    background: #f6a16b;
-
-    border-radius: 50%;
-
-    box-shadow:
-        0 0 20px #f6a16b;
-}
-
-.evento h3 {
-    font-size: 24px;
-    font-weight: normal;
-
-    margin-bottom: 10px;
-}
-
-.evento p {
-    line-height: 1.8;
-    opacity: .7;
-}
-
-
-/* COISAS DELA */
-
-.lista {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    justify-content: center;
-
-    gap: 12px;
-}
-
-.tag {
-    padding: 12px 18px;
-
-    border-radius: 30px;
-
-    background:
-        rgba(255,255,255,.07);
-
-    border:
-        1px solid rgba(255,255,255,.1);
-
-    opacity: .85;
-}
-
 
 /* FINAL */
 
-.final {
-    min-height: 90vh;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
-
+.final{
+    min-height:100vh;
     background:
-        radial-gradient(
-            circle at center,
-            rgba(255,150,100,.2),
-            transparent 45%
-        );
+    radial-gradient(circle at 50% 45%,
+    rgba(197,111,83,.2),
+    transparent 35%);
 }
 
-.final h2 {
-    font-size: clamp(40px,9vw,80px);
-
-    font-weight: normal;
-
-    margin-bottom: 30px;
+.final h2{
+    font-size:clamp(42px,10vw,70px);
 }
 
-.final p {
-    max-width: 650px;
-
-    margin: auto;
-
-    font-size: 20px;
-
-    line-height: 1.9;
-
-    opacity: .8;
+.signature{
+    margin-top:50px;
+    color:#aaa5b8;
+    font-style:italic;
+    font-size:18px;
 }
 
-.assinatura {
-    margin-top: 45px;
+/* ANIMAÇÃO */
 
-    font-style: italic;
-
-    opacity: .6;
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
 }
 
-
-/* ANIMAÇÕES */
-
-.revelar {
-    opacity: 0;
-
-    transform:
-        translateY(40px);
-
-    transition: 1s;
+.reveal.visible{
+    opacity:1;
+    transform:translateY(0);
 }
 
-.revelar.visivel {
-    opacity: 1;
+@media(max-width:600px){
 
-    transform:
-        translateY(0);
-}
-
-@keyframes aparecer {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(30px);
+    section{
+        padding:80px 20px;
     }
 
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-
-/* CELULAR */
-
-@media(max-width:600px) {
-
-    .carta {
-        padding: 30px 22px;
+    .cards{
+        grid-template-columns:1fr;
     }
 
-    .carta p {
-        font-size: 17px;
+    .letter{
+        padding:25px;
     }
 
-    .titulo h2 {
-        font-size: 34px;
-    }
-
-    .hero p {
-        font-size: 17px;
+    .letter p{
+        font-size:18px;
     }
 }
 </style>
 </head>
 
-
 <body>
 
+<div class="stars" id="stars"></div>
 
-<!-- ESTRELAS -->
+<!-- INÍCIO -->
 
-<div
-    class="fundo"
-    id="estrelas">
+<section class="hero" id="inicio">
+
+<div class="hero-content">
+
+<div class="small">
+Isso é só para você
 </div>
 
+<h1>Lorena ✨</h1>
 
-<!-- TELA INICIAL -->
+<div class="subtitle">
+Eu poderia simplesmente te dizer<br>
+algumas palavras...<br>
+mas você merece algo diferente.
+</div>
 
-<div id="inicio">
+<button onclick="abrir()">
+Abrir
+</button>
 
-    <div class="inicio-conteudo">
+</div>
+</section>
 
-        <div class="pequeno">
-            isso é só para você
-        </div>
 
-        <h1>
-            Lorena ✨
-        </h1>
+<!-- PRIMEIRA MENSAGEM -->
 
-        <p>
-            Eu poderia simplesmente te dizer algumas palavras,
-            mas achei que você merecia algo um pouco diferente.
-        </p>
+<section class="reveal">
 
-        <button
-            class="botao"
-            onclick="entrar()">
+<div class="container">
 
-            Abrir
+<h2>Algumas pessoas chegam...</h2>
 
-        </button>
+<p class="text">
+Algumas pessoas passam pela nossa vida sem deixar muita coisa.
+Outras chegam devagar, quase sem perceber,
+e quando vemos já ocupam um espaço que nem sabíamos
+que estava esperando por alguém.
+</p>
 
-    </div>
+<p class="destaque">
+Você foi uma dessas pessoas.
+</p>
+
+<p class="text">
+E talvez seja justamente isso que torna sua presença
+tão especial para mim.
+</p>
 
 </div>
 
+</section>
 
-<!-- HERO -->
 
-<header class="hero">
+<!-- LORENA -->
 
-    <div>
+<section class="reveal">
 
-        <div class="pequeno">
-            uma pequena homenagem
-        </div>
+<div class="container">
 
-        <h1>
-            Lorena
-        </h1>
+<div class="moon"></div>
 
-        <div class="coracao">
-            ♡
-        </div>
+<h2>O que existe em você</h2>
 
-        <p>
-            Algumas pessoas chegam sem avisar.
-            Outras chegam justamente quando a gente mais precisava
-            lembrar que ainda existem pessoas especiais.
-        </p>
+<p class="text">
+Você tem uma maneira muito particular de enxergar a vida.
+Gosta do pôr do sol, das estrelas, da lua,
+do campo, do silêncio de alguns momentos
+e também de falar por horas quando encontra alguém
+com quem se sente bem.
+</p>
 
-    </div>
+<div class="cards">
 
-</header>
+<div class="card">
+<span>🌅</span>
+<p>Pôr do sol</p>
+</div>
+
+<div class="card">
+<span>🌙</span>
+<p>Lua e estrelas</p>
+</div>
+
+<div class="card">
+<span>🏐</span>
+<p>Vôlei</p>
+</div>
+
+<div class="card">
+<span>🌾</span>
+<p>Campo</p>
+</div>
+
+<div class="card">
+<span>👗</span>
+<p>Vestidos</p>
+</div>
+
+<div class="card">
+<span>👧</span>
+<p>Seu carinho por crianças</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 
 <!-- CARTA -->
 
-<section>
+<section class="reveal">
 
-<div class="conteudo revelar">
+<div class="container">
 
-    <div class="titulo">
+<h2>Mas isso não é sobre uma lista.</h2>
 
-        <span>
-            se eu pudesse explicar
-        </span>
+<div class="letter">
 
-        <h2>
-            O que você significa
-        </h2>
+<p>
+É sobre a pessoa por trás de tudo isso.
+</p>
 
-    </div>
+<p>
+É sobre o jeito que você consegue tornar
+uma conversa simples em algo importante.
+</p>
 
+<p>
+É sobre como, mesmo sem perceber,
+você consegue fazer alguém se sentir ouvido,
+acolhido e lembrado.
+</p>
 
-    <div class="carta">
+<p>
+E é sobre a forma como sua presença acabou
+se tornando algo bonito na minha vida.
+</p>
 
-        <p>
-            Lorena, talvez você nunca consiga entender completamente
-            o quanto a sua presença se tornou importante para mim.
-        </p>
+<p>
+Talvez você nem tenha dimensão do quanto
+uma amizade pode significar para alguém.
+</p>
 
-        <p>
-            Você apareceu em uma fase em que eu já estava cansado
-            de algumas coisas, de algumas pessoas e, principalmente,
-            de esperar que algo pudesse realmente fazer sentido.
-        </p>
+<p>
+Mas eu tenho.
+</p>
 
-        <p>
-            E então veio você.
-        </p>
-
-        <p>
-            Não como alguém que chegou prometendo mudar tudo,
-            mas simplesmente sendo você.
-        </p>
-
-        <p>
-            Com seu jeito de falar demais, sua paixão pelo pôr do sol,
-            pelas estrelas, pela lua, pelo campo, pelas crianças,
-            pelo vôlei, pelos vestidos e por tantas outras pequenas
-            coisas que fazem parte de quem você é.
-        </p>
-
-        <p class="frase">
-            "Talvez você não tenha percebido,
-            mas algumas das suas pequenas coisas
-            se tornaram grandes para mim."
-        </p>
-
-        <p>
-            Eu gosto de saber que existe alguém como você na minha vida.
-            Alguém com quem eu posso conversar, rir, ouvir histórias
-            e simplesmente compartilhar um pouco da vida.
-        </p>
-
-        <p>
-            E acima de tudo, gosto de saber que nossa amizade nasceu
-            de uma forma verdadeira.
-        </p>
-
-        <p>
-            Você não precisou fazer nada extraordinário para ser especial.
-            Sua existência já foi suficiente.
-        </p>
-
-    </div>
+</div>
 
 </div>
 
 </section>
 
 
-<!-- MOMENTOS -->
+<!-- GRATIDÃO -->
 
-<section>
+<section class="reveal">
 
-<div class="conteudo revelar">
+<div class="container">
 
-    <div class="titulo">
+<h2>Obrigado por ter chegado.</h2>
 
-        <span>
-            coisas que me fazem lembrar de você
-        </span>
+<p class="text">
+Nem sempre a vida coloca as pessoas certas
+no momento que esperamos.
+Às vezes ela simplesmente coloca.
+</p>
 
-        <h2>
-            Seu universo
-        </h2>
+<p class="destaque">
+E cabe a nós perceber o presente que isso representa.
+</p>
 
-    </div>
-
-
-    <div class="momentos">
-
-
-        <div class="momento">
-
-            <h3>
-                🌅 Pôr do sol
-            </h3>
-
-            <p>
-                Porque algumas pessoas encontram beleza
-                justamente no momento em que o dia está terminando.
-            </p>
-
-        </div>
-
-
-        <div class="momento">
-
-            <h3>
-                🌙 Lua
-            </h3>
-
-            <p>
-                Aquele tipo de beleza silenciosa que não precisa
-                chamar atenção para ser percebida.
-            </p>
-
-        </div>
-
-
-        <div class="momento">
-
-            <h3>
-                ✨ Estrelas
-            </h3>
-
-            <p>
-                Pequenos pontos de luz em meio à imensidão.
-                Talvez por isso combinem tanto com você.
-            </p>
-
-        </div>
-
-
-        <div class="momento">
-
-            <h3>
-                🌿 Campo
-            </h3>
-
-            <p>
-                A simplicidade de estar em um lugar tranquilo
-                e simplesmente aproveitar o momento.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- LINHA DO TEMPO -->
-
-<section>
-
-<div class="conteudo revelar">
-
-    <div class="titulo">
-
-        <span>
-            nossa história
-        </span>
-
-        <h2>
-            Alguns capítulos
-        </h2>
-
-    </div>
-
-
-    <div class="timeline">
-
-
-        <div class="evento">
-
-            <h3>
-                Quando você apareceu
-            </h3>
-
-            <p>
-                Eu não sabia que aquela amizade teria tanta importância.
-                Às vezes, as melhores histórias começam sem que a gente
-                perceba que está vivendo o primeiro capítulo.
-            </p>
-
-        </div>
-
-
-        <div class="evento">
-
-            <h3>
-                Quando começamos a conversar
-            </h3>
-
-            <p>
-                Aos poucos, histórias foram compartilhadas,
-                problemas foram contados e aquela distância inicial
-                foi dando espaço para confiança.
-            </p>
-
-        </div>
-
-
-        <div class="evento">
-
-            <h3>
-                Quando percebi sua importância
-            </h3>
-
-            <p>
-                Foi quando percebi que já não era apenas sobre conversar.
-                Era sobre saber que existia alguém ali.
-            </p>
-
-        </div>
-
-
-        <div class="evento">
-
-            <h3>
-                E hoje
-            </h3>
-
-            <p>
-                Hoje eu só espero que essa amizade continue sendo
-                uma daquelas coisas bonitas que a vida colocou no caminho.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- COISAS DELA -->
-
-<section>
-
-<div class="conteudo revelar">
-
-    <div class="titulo">
-
-        <span>
-            porque é impossível resumir você
-        </span>
-
-        <h2>
-            Coisas que fazem você ser você
-        </h2>
-
-    </div>
-
-
-    <div class="lista">
-
-        <div class="tag">
-            🌅 Pôr do sol
-        </div>
-
-        <div class="tag">
-            👧 Crianças
-        </div>
-
-        <div class="tag">
-            🏐 Vôlei
-        </div>
-
-        <div class="tag">
-            🌿 Campo
-        </div>
-
-        <div class="tag">
-            💇‍♀️ Cabelo
-        </div>
-
-        <div class="tag">
-            💬 Falar demais
-        </div>
-
-        <div class="tag">
-            👗 Vestidos
-        </div>
-
-        <div class="tag">
-            🏠 Ficar em casa
-        </div>
-
-        <div class="tag">
-            🌌 Dormir em lugares abertos
-        </div>
-
-        <div class="tag">
-            ⭐ Estrelas
-        </div>
-
-        <div class="tag">
-            🌙 Lua
-        </div>
-
-    </div>
+<p class="text">
+Por isso, independente de onde a vida nos leve,
+eu espero que você nunca esqueça:
+sua existência já fez diferença na minha.
+</p>
 
 </div>
 
@@ -900,46 +483,42 @@ section {
 
 <!-- FINAL -->
 
-<section class="final">
+<section class="final reveal">
 
-<div class="revelar">
+<div class="container">
 
-    <div class="pequeno">
-        e se um dia você esquecer...
-    </div>
+<div class="small">
+E se algum dia você esquecer...
+</div>
 
-    <h2>
-        Leia isso novamente.
-    </h2>
+<h2>
+Você é incrível.
+</h2>
 
-    <p>
-        Você é uma pessoa incrível, Lorena.
-        E talvez você nunca saiba exatamente o tamanho
-        da diferença que sua amizade fez na minha vida.
-    </p>
+<p class="text">
+Não porque precisa ser perfeita.
+<br><br>
+Mas porque é você.
+</p>
 
-    <p style="margin-top:25px">
+<p class="destaque">
+Continue olhando para o pôr do sol.<br>
+Continue admirando as estrelas.<br>
+Continue sendo essa Lorena.
+</p>
 
-        Mas eu espero que, quando olhar para o céu,
-        encontrar o pôr do sol ou observar a lua,
-        você se lembre de uma coisa:
+<p class="text">
+Porque existem pessoas que iluminam um lugar
+quando chegam.
+<br><br>
+E existem pessoas que iluminam
+a vida de quem tem a sorte de conhecê-las.
+</p>
 
-    </p>
-
-    <p
-        class="frase"
-        style="margin-top:30px;font-style:italic">
-
-        Você também é uma das coisas bonitas
-        que a vida colocou no meu caminho.
-
-    </p>
-
-    <div class="assinatura">
-
-        — Guilherme 🤍
-
-    </div>
+<div class="signature">
+Com carinho,<br>
+Guilherme ❤️
+</div>
 
 </div>
 
@@ -948,103 +527,67 @@ section {
 
 <script>
 
-
 /* CRIAR ESTRELAS */
 
-const estrelas =
-    document.getElementById("estrelas");
+const estrelas = document.getElementById("stars");
 
+for(let i=0;i<90;i++){
 
-for(let i = 0; i < 160; i++){
+    const estrela=document.createElement("div");
 
-    const estrela =
-        document.createElement("div");
+    estrela.className="star";
 
-    estrela.className =
-        "estrela";
+    estrela.style.left=Math.random()*100+"%";
+    estrela.style.top=Math.random()*100+"%";
 
-    estrela.style.left =
-        Math.random() * 100 + "%";
+    estrela.style.animationDelay=
+        Math.random()*3+"s";
 
-    estrela.style.top =
-        Math.random() * 75 + "%";
-
-    const tamanho =
-        Math.random() * 3 + 1;
-
-    estrela.style.width =
-        tamanho + "px";
-
-    estrela.style.height =
-        tamanho + "px";
-
-    estrela.style.animationDelay =
-        Math.random() * 4 + "s";
+    estrela.style.opacity=
+        Math.random();
 
     estrelas.appendChild(estrela);
-
 }
 
 
-/* ABRIR SITE */
+/* BOTÃO ABRIR */
 
-function entrar(){
+function abrir(){
 
-    document
-        .getElementById("inicio")
-        .classList
-        .add("saindo");
+    window.scrollTo({
+        top:window.innerHeight,
+        behavior:"smooth"
+    });
 
 }
 
 
 /* ANIMAÇÃO AO ROLAR */
 
-const observador =
-    new IntersectionObserver(
+const observer=
+new IntersectionObserver((entries)=>{
 
-        entradas => {
+    entries.forEach(entry=>{
 
-            entradas.forEach(
-                entrada => {
+        if(entry.isIntersecting){
 
-                    if(
-                        entrada.isIntersecting
-                    ){
-
-                        entrada.target
-                            .classList
-                            .add("visivel");
-
-                    }
-
-                }
-            );
-
-        },
-
-        {
-            threshold: .15
-        }
-
-    );
-
-
-document
-    .querySelectorAll(".revelar")
-    .forEach(
-
-        elemento => {
-
-            observador.observe(
-                elemento
-            );
+            entry.target.classList.add("visible");
 
         }
 
-    );
+    });
+
+},{
+    threshold:.15
+});
+
+
+document.querySelectorAll(".reveal")
+.forEach(elemento=>{
+    observer.observe(elemento);
+});
 
 </script>
 
 </body>
-        </html>
+</html>
